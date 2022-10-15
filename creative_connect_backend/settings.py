@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'creative_connect_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'creative_connect',
+        'USER' : 'postgres',
+        'PASSWORD' : '2514',
+        'HOST': '',
+        'PORT': '5432',
     }
 }
 
