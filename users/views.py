@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 
 # Create your views here.
 
@@ -6,3 +8,6 @@ from django.shortcuts import render
 def front(request):
     context = {}
     return render(request, 'index.html', context)
+
+def register(request):
+    pass
