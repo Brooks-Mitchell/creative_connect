@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from user_posts.views import PostList
 from users.views import front
+# from user_posts.views import post_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", front, name="front"),
+    path('', front, name="front"),
+    path('posts/', PostList.as_view()),
 ]
