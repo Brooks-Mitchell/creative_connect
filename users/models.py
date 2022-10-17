@@ -21,3 +21,16 @@ class User_Profile(models.Model):
         ('1 priority', '#1 Priority')
     )
 
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_bio = models.TextField(max_length=320, default="", blank=True)
+    user_yoe = models.IntegerField(default=0)
+    user_role = models.CharField(max_length=80, choices=ROLE_OPTIONS, default='none')
+    user_commitment_level = models.CharField(max_length=80, choices=COMMITMENT_LEVEL, default='Casual')
+    # image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+    
+    def __str__(self):
+        return f'{self.user.username} Profile'
+    
+

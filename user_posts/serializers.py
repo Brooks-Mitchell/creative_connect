@@ -5,7 +5,7 @@ from .models import User_Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         model = User_Post
         fields = '__all__'
         

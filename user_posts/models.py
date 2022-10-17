@@ -8,3 +8,6 @@ class User_Post(models.Model):
     content = models.TextField(max_length=320)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE) # models.ForeignKey('auth.User', related_name='posts', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

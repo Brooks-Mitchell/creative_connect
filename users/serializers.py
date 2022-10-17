@@ -5,8 +5,8 @@ from user_posts.models import User_Post
 
 class UserSerializer(serializers.ModelSerializer):
     
-    posts = serializers.PrimaryKeyRelatedField(many=True, queryset=User_Post.objects.all())
+   # posts = serializers.PrimaryKeyRelatedField(many=True, queryset=User_Post.objects.all())
     
-    class meta:
+    class Meta:
         model = User
         fields = '__all__'

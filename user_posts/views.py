@@ -8,9 +8,13 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from rest_framework import permissions
+from user_posts.permissions import IsOwnerOrReadOnly
 
 
 class PostList(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
     def get(self, request, format=None):
         posts = User_Post.objects.all()
         serializer = PostSerializer(posts, many=True)
@@ -28,6 +32,7 @@ class PostList(APIView):
 
 
 class PostDetail(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
 
     def get_object(self, pk):
         try:
